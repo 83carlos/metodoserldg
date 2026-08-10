@@ -307,6 +307,8 @@ p {
 .hero-copy {
   position: relative;
   z-index: 3;
+  width: 100%;
+  min-width: 0;
   margin-top: 14px;
 }
 
@@ -325,6 +327,14 @@ h1 {
   text-shadow: 0 8px 28px rgba(0, 0, 0, 0.48);
 }
 
+.hero-title {
+  max-width: min(100%, 340px);
+  font-size: 30px;
+  line-height: 1.05;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
 .accent-line {
   margin-top: 8px;
   color: var(--magenta);
@@ -340,6 +350,11 @@ h1 {
   margin: 14px auto 0;
   color: var(--muted);
   font-size: 15px;
+}
+
+.hero-text-strong {
+  color: #f1f6ff;
+  font-weight: 700;
 }
 
 .hero-lockup {
@@ -508,6 +523,8 @@ h1 {
 .quick-strip div,
 .question-stack article,
 .pillar-grid article,
+.letter-grid article,
+.story-grid article,
 .audience-list p,
 details {
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -577,6 +594,8 @@ dt {
 
 .section-head p:not(.section-kicker),
 .split-copy p,
+.mentor-copy p,
+.content-stack p,
 .mentor-copy li,
 .register-card p,
 .final-cta p,
@@ -587,12 +606,43 @@ details p {
 
 .section-head p:not(.section-kicker),
 .split-copy p,
+.mentor-copy p,
 .final-cta p {
   margin-top: 16px;
 }
 
+.content-stack {
+  display: grid;
+  gap: 12px;
+  max-width: 720px;
+  margin-top: 24px;
+}
+
+.highlight-card,
+.inline-highlight {
+  margin: 26px 0 0;
+  padding: 18px;
+  color: var(--text);
+  border-left: 3px solid var(--magenta);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(255, 32, 215, 0.14), rgba(27, 88, 255, 0.1)),
+    rgba(5, 10, 34, 0.72);
+  box-shadow: var(--glow-pink);
+  font-family: "Montserrat", "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.inline-highlight {
+  font-size: 18px;
+}
+
 .question-stack,
 .pillar-grid,
+.letter-grid,
+.story-grid,
 .audience-list,
 .faq-list {
   display: grid;
@@ -622,6 +672,8 @@ details p {
 
 .question-stack p,
 .pillar-grid p,
+.letter-grid p,
+.story-grid p,
 .audience-list p {
   color: var(--muted);
   font-size: 15px;
@@ -678,7 +730,9 @@ details p {
   padding: 18px;
 }
 
-.pillar-grid strong {
+.pillar-grid strong,
+.letter-grid strong,
+.story-grid strong {
   display: block;
   color: var(--text);
   font-family: "Montserrat", "Inter", sans-serif;
@@ -686,8 +740,44 @@ details p {
   font-weight: 900;
 }
 
-.pillar-grid p {
+.pillar-grid p,
+.letter-grid p,
+.story-grid p {
   margin-top: 10px;
+}
+
+.compact-grid article {
+  min-height: 0;
+}
+
+.letter-grid article {
+  min-height: 220px;
+  padding: 20px;
+}
+
+.letter-grid span {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+  color: var(--text);
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--magenta), var(--blue));
+  box-shadow: var(--glow-pink), var(--glow-blue);
+  font-family: "Montserrat", "Inter", sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.story-grid article {
+  padding: 18px;
+}
+
+.section-cta {
+  display: grid;
+  place-items: center;
+  margin-top: 26px;
 }
 
 .audience-list p {
@@ -840,6 +930,18 @@ details p {
   margin-top: 8px;
 }
 
+.register-note,
+.fine-print {
+  max-width: 56ch;
+  margin: 18px auto 0;
+  color: var(--muted);
+  text-align: center;
+}
+
+.fine-print {
+  text-align: left;
+}
+
 .event-details {
   display: grid;
   gap: 10px;
@@ -905,12 +1007,34 @@ details p {
 }
 
 .final-cta h2 {
-  font-size: 36px;
+  font-size: 34px;
+  line-height: 1.02;
 }
 
 .final-cta p {
   margin: 14px auto 22px;
   max-width: 34ch;
+}
+
+.final-copy {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.final-mantra {
+  display: grid;
+  gap: 8px;
+  margin: 26px auto 20px;
+}
+
+.final-mantra strong {
+  display: block;
+  color: var(--magenta);
+  font-family: "Montserrat", "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  text-shadow: var(--glow-pink);
 }
 
 .signature {
@@ -1021,6 +1145,11 @@ details p {
     font-size: 60px;
   }
 
+  .hero-title {
+    max-width: 560px;
+    font-size: 42px;
+  }
+
   .accent-line,
   .hero-text {
     margin-left: 0;
@@ -1052,8 +1181,14 @@ details p {
 
   .question-stack,
   .pillar-grid,
+  .letter-grid,
+  .story-grid,
   .gallery {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .letter-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .gallery figure:first-child {
@@ -1068,6 +1203,10 @@ details p {
 @media (min-width: 980px) {
   h1 {
     font-size: 72px;
+  }
+
+  .hero-title {
+    font-size: 48px;
   }
 
   .section-head h2,
@@ -1095,6 +1234,11 @@ details p {
 
   h1 {
     font-size: 38px;
+  }
+
+  .hero-title {
+    max-width: 336px;
+    font-size: 27px;
   }
 
   .accent-line {
@@ -1128,6 +1272,15 @@ details p {
   .register-card h2,
   .final-cta h2 {
     font-size: 31px;
+  }
+
+  .highlight-card,
+  .inline-highlight {
+    font-size: 17px;
+  }
+
+  .event-details div {
+    grid-template-columns: 92px 1fr;
   }
 }
 

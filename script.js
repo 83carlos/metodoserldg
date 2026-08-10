@@ -1,4 +1,5 @@
-const registrationUrl = "https://api.whatsapp.com/send/?phone=5583988281120&text&type=phone_number&app_absent=0";
+const registrationMessage = "Olá! Conheci o Método Ser pela página e gostaria de receber mais informações sobre a próxima imersão.";
+const registrationUrl = `https://api.whatsapp.com/send/?phone=5583988281120&text=${encodeURIComponent(registrationMessage)}&type=phone_number&app_absent=0`;
 
 const registrationLinks = document.querySelectorAll('a[href="#inscricao"]');
 

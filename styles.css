@@ -329,12 +329,20 @@ h1 {
 
 .hero-title {
   max-width: min(100%, 340px);
-  font-size: 29px;
-  line-height: 1.08;
+  font-size: 34px;
+  line-height: 1.02;
   overflow-wrap: normal;
   word-break: normal;
   hyphens: manual;
   text-wrap: balance;
+}
+
+.headline-desktop {
+  display: none;
+}
+
+.headline-mobile {
+  display: inline;
 }
 
 .accent-line {
@@ -1177,6 +1185,14 @@ details p {
     line-height: 1.09;
   }
 
+  .headline-desktop {
+    display: inline;
+  }
+
+  .headline-mobile {
+    display: none;
+  }
+
   .accent-line,
   .hero-text {
     margin-left: 0;
@@ -1265,8 +1281,9 @@ details p {
   }
 
   .hero-title {
-    max-width: 336px;
-    font-size: 27px;
+    max-width: 350px;
+    font-size: 30px;
+    line-height: 1.02;
   }
 
   .accent-line {

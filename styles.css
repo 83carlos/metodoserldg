@@ -329,10 +329,12 @@ h1 {
 
 .hero-title {
   max-width: min(100%, 340px);
-  font-size: 30px;
-  line-height: 1.05;
-  overflow-wrap: break-word;
-  hyphens: auto;
+  font-size: 29px;
+  line-height: 1.08;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: manual;
+  text-wrap: balance;
 }
 
 .accent-line {
@@ -713,6 +715,8 @@ details p {
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: center top;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0 84%, rgba(0, 0, 0, 0.72) 93%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0 84%, rgba(0, 0, 0, 0.72) 93%, transparent 100%);
 }
 
 .split-copy {
@@ -812,6 +816,24 @@ details p {
   overflow: hidden;
 }
 
+.mentor-art::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 3;
+  width: min(94%, 380px);
+  height: 26%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 52% 60%, rgba(2, 6, 23, 0.98) 0 36%, transparent 70%),
+    radial-gradient(ellipse at 28% 76%, rgba(255, 32, 215, 0.24), transparent 58%),
+    radial-gradient(ellipse at 70% 72%, rgba(27, 88, 255, 0.28), transparent 58%),
+    linear-gradient(180deg, transparent 0%, rgba(2, 6, 23, 0.95) 86%);
+  filter: blur(16px);
+}
+
 .mentor-glow {
   position: absolute;
   left: 50%;
@@ -832,6 +854,8 @@ details p {
   position: relative;
   z-index: 2;
   width: min(86vw, 350px);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0 82%, rgba(0, 0, 0, 0.75) 92%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0 82%, rgba(0, 0, 0, 0.75) 92%, transparent 100%);
   filter: drop-shadow(0 28px 38px rgba(0, 0, 0, 0.58));
 }
 
@@ -1114,25 +1138,27 @@ details p {
   }
 
   .hero-stage {
-    width: min(100%, 1080px);
+    width: min(100%, 1240px);
     display: grid;
-    grid-template-columns: minmax(320px, 0.95fr) minmax(340px, 1fr);
+    grid-template-columns: minmax(400px, 0.9fr) minmax(500px, 1.1fr);
     grid-template-areas:
       "portrait copy"
       "portrait lockup"
       "portrait action";
     align-content: center;
-    column-gap: 34px;
+    column-gap: 48px;
     text-align: left;
   }
 
   .hero-portrait {
     grid-area: portrait;
-    height: min(76dvh, 680px);
+    height: min(88dvh, 820px);
   }
 
   .hero-portrait img {
-    width: min(42vw, 470px);
+    width: min(38vw, 520px);
+    max-height: none;
+    transform: translateY(14%);
   }
 
   .hero-copy {
@@ -1146,8 +1172,9 @@ details p {
   }
 
   .hero-title {
-    max-width: 560px;
-    font-size: 42px;
+    max-width: 620px;
+    font-size: 36px;
+    line-height: 1.09;
   }
 
   .accent-line,
@@ -1206,7 +1233,8 @@ details p {
   }
 
   .hero-title {
-    font-size: 48px;
+    max-width: 640px;
+    font-size: 42px;
   }
 
   .section-head h2,
